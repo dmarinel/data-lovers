@@ -1,12 +1,11 @@
-
-export const getPokemons= (objectData) => {
-    const arrayData = objectData.pokemon
-    let getPokemon = arrayData.map((poke)=>{
-      let pokemonNumber = poke.num
-      let pokemonName = poke.name
-      let pokemonImage = poke.img
-      return  pokemonNumber
-    })
-  return getPokemon
+export const filterPokemonsByType = (typePokemon, getpokemon) => {
+    console.log(typePokemon.value);
+    // let typePokemon 
+    
+  //   let filterType = objectData.filter((poke)=>{
+  //     console.log(poke.type);
+     
+  //   })
+  // return filterType
 };
 
