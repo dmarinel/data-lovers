@@ -10,7 +10,8 @@ const getPokemons = data.pokemon;
 // console.log(pokemonFiltro.value);
 
 const searchPokemonsByTypes = () => {
-  filterPokemonsByType(typePokemon, getPokemons);
+  
+  showPokemons(filterPokemonsByType(typePokemon, getPokemons))
 };
 
 // Event Change
@@ -19,6 +20,7 @@ typePokemon.addEventListener("change", searchPokemonsByTypes);
 
 const showPokemons = (pokemonData) => {
   let pokemos = pokemonData.forEach((poke) => {
+    // tbody.innerHTML = ""
     let tbody = document.createElement("tbody");
     tbody.innerHTML = `
     <tbody >
@@ -34,4 +36,4 @@ const showPokemons = (pokemonData) => {
     pokemonList.appendChild(tbody);
   });
 };
-showPokemons(getPokemons);
+// showPokemons(getPokemons);
