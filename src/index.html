@@ -3,67 +3,69 @@
   <head>
     <meta charset="utf-8">
     <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/src/css/style.css" />
   </head>
   <body>
-    <div id="root">
-      <header>
-        <a href="#">pokéDex</a>
-        <img src="./img/Sin título-2.png" width="240" height="118" alt="">
-        <a href="#">Histograma</a>
+    <div id="root" class="root">
+      <header class="container__header">
+        <a href="#" class="container__header-text">pokéDex</a>
+        <img src="./img/Sin título-2.png" width="240.3" height="118.66" alt="">
+        <a href="#" class="container__header-text">Histograma</a>
       </header>
-      <main>
-        <section>
-          <select name="" id="" class="typePokemon">
-        <optgroup  label="Type"> 
-              <option value="water">water</option>
-              <option value="fire">fire</option>
-              <option value="ice">ice</option>
-              <option value="rock">rock</option>
-              <option value="normal">normal</option>
-              <option value="flying">flying</option>
-            </optgroup> 
-            <optgroup label="">Soft</optgroup>
-            <optgroup label="">Weight</optgroup>
-            <optgroup label="">cp</optgroup>
-            <optgroup label="">hp</optgroup>
-          </select>
-          <div>
-            <img src="" alt="">
-            <input type="text" placeholder="Search pokemon">
-          </div>
-          <div>
-            <button>up</button>
-            <button>down</button>
-          </div>
-          <div>
-            <button>left</button>
-            <button>rigth</button>
-          </div>
+      <main class="container__main">
+        <section class="container__main-left">
+          <h1>hola pokemon</h1>
         </section>
-        <section>
-          <div>
-          </div>
-          <div>
-            <table id="pokemonList">
-              <!-- <tbody >
-                <tr>
-                  <td>
-                    <p>#001</p>
-                    <p>imagen</p>
-                    <p>Nombre</p>
-                  </td>
-                </tr>
-              </tbody> -->
-            </table>
-          <div>
-            <button>Derecha</button>
-            <button>Izquierda</button>
-          </div>
-        </section>
+        <section class="container__main-right">
+          <section class="main__right-search" multi>
+            <select name="" id="" class="typePokemon btnFilter">
+              <optgroup  label="Type"> 
+                <option value="water">water</option>
+                <option value="fire">fire</option>
+                <option value="ice">ice</option>
+                <option value="rock">rock</option>
+                <option value="normal">normal</option>
+                <option value="flying">flying</option>
+                
+              </optgroup> 
+              <option label="">Weight</option>
+              <option label="">cp</option>
+              <option label="">hp</option>
+              <option label="">Soft</option>
+              <option value="" selected></option>
+            </select>
+            <div class="inputSearch" >
+              <img src="./img/search.png" >
+              <input type="text"  placeholder="Search pokemon">
+            </div>
+            <div>
+              <button>up</button>
+              <button>down</button>
+            </div>
+          </section>
+
+          <section>
+            <div>
+              <table id="pokemonList">
+                <!-- <tbody >
+                  <tr>
+                    <td>
+                      <p>#001</p>
+                      <p>imagen</p>
+                      <p>Nombre</p>
+                    </td>
+                  </tr>
+                </tbody> -->
+              </table>
+          </section>
+          <section>
+            <div>
+              <button>left</button>
+              <button>rigth</button>
+            </div>
+          </section>
       </main>
     </div>
     <script src="main.js" type="module"></script>
   </body>
 </html>
-<img src="" alt="">
