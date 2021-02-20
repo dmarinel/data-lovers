@@ -120,6 +120,151 @@
   background-color: rgba(241, 234, 234, 0.9);
 }
 
+.btnUp{
+  background-image: url('../img/flecha-hacia-arriba.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  width:1.88rem;
+  height: 1.88rem;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  /* animation: ring 1.5s infinite; */
+}
 
+.btnUp:hover{
+  color: #313133;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
 
+.btnDown{
+  background-image: url('../img/flecha-hacia-abajo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  width:1.88rem;
+  height: 1.88rem;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+}
 
+.btnDown:hover{
+  color: #313133;
+  transform: translateY( 3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* @keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 1.88rem;
+    height: 1.88rem;
+    opacity: 0;
+  }
+} */
+
+.main__right-list{
+  width: 36.06rem;
+  height: 32.82rem;
+  background: var(--red);
+  border-top-right-radius: 0.19rem;
+  border-bottom-right-radius: 0.19rem;
+  border-bottom-left-radius: 0.19rem;
+  box-shadow: 0px 12px 4px 0px rgba(0, 0, 0, 0.3);
+  padding: 1.9rem 2.69rem ;
+}
+
+/* Layaout of  table */
+.right__list-ul{
+  display: flex;
+  flex-direction: column;
+  gap: 0.81rem;
+  
+}
+.right__ul{
+  width: 30.43rem;
+  height: 8.5rem;
+  border-radius: 1.25rem;
+  background-color: rgba(253, 237, 237, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.19rem 0.81rem;
+}
+
+.right__ul-li{
+  width: 8.13rem;
+  height: 8.13rem;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), rgba(196, 196, 196, 0.8);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.03rem;
+  padding: 0.01rem;
+}
+
+.right__ul-li p{
+  font-family: var(--share);
+  font-weight: 400;
+  font-size: 1rem;
+  color:  rgba(20, 10, 82, 0.3);
+  /* margin-top: 0.8rem; */
+}
+
+.right__ul-li span{
+  font-family: var(--share);
+  font-weight: 400;
+  font-size: 0.94rem;
+  color:  #4D4A5F;
+  /* margin-bottom: 0.5rem; */
+}
+
+.right__ul-li img{
+  width: 5rem;
+  height: 5rem;
+}
+
+.right_btn{
+  display: flex;
+  justify-content: center;
+  gap: 6.4rem;
+}
+
+.btnLeft{
+  background-image: url('../img/flecha-izquierda.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  width:1.88rem;
+  height: 1.88rem;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  box-shadow: -4px 4px 4px 0px rgba(0, 0, 0, 0.4) ;
+
+}
+
+.btnRigth{
+  background-image: url('../img/flecha-derecha.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  width:1.88rem;
+  height: 1.88rem;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.4);
+  
+
+}
