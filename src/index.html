@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Data Lovers</title>
     <link rel="stylesheet" href="/src/css/style.css" />
   </head>
@@ -9,109 +9,143 @@
     <div id="root" class="root">
       <header class="container__header">
         <a href="#" class="container__header-text">pokéDex</a>
-        <img src="./img/Sin título-2.png" width="240.3" height="118.66" alt="">
+        <img
+          src="./img/Sin título-2.png"
+          width="240.3"
+          height="118.66"
+          alt=""
+        />
         <a href="#" class="container__header-text">Histograma</a>
       </header>
       <main class="container__main">
         <section class="container__main-left">
-          <h1>hola pokemon</h1>
+          <section class="main__left-light">
+            <canvas class="lightBlue"></canvas>
+            <section class="lights">
+              <canvas class="lightRed"></canvas>
+              <canvas class="lightYellow"></canvas>
+              <canvas class="lightGreen"></canvas>
+            </section>
+          </section>
+          <section class="main__left-info"></section>
+          <section></section>
         </section>
         <section class="container__main-right">
           <section class="main__right-search" multi>
             <select name="" id="" class="typePokemon btnFilter">
-              <optgroup  label="Type"> 
+              <optgroup label="Type">
                 <option value="water">water</option>
                 <option value="fire">fire</option>
                 <option value="ice">ice</option>
                 <option value="rock">rock</option>
                 <option value="normal">normal</option>
                 <option value="flying">flying</option>
-                
-              </optgroup> 
+              </optgroup>
               <option label="">Weight</option>
               <option label="">cp</option>
               <option label="">hp</option>
               <option label="">Soft</option>
               <option value="" selected></option>
             </select>
-            <div class="inputSearch" >
-              <img src="./img/search.png" >
-              <input type="text"  placeholder="Search pokemon">
+            <div class="inputSearch">
+              <img src="./img/search.png" />
+              <input type="text" placeholder="Search pokemon" />
             </div>
             <div>
-              <button  class="btnUp"></button>
+              <button class="btnUp"></button>
               <button class="btnDown"></button>
             </div>
           </section>
-          <section class="main__right-list">
-            <div class="right__list-ul">
-              <!-- <table id="pokemonList" >
-                <tbody class="main__right-table">
-                  <tr class="right__table-tr"> 
-                    <td class="right__table-td">
-                      <p>#001</p>
-                      <img src="https://www.serebii.net/pokemongo/pokemon/001.png" alt="">
-                      <p>Nombre</p>
-                    </td>td>
-                     
-                </tbody>
-              </table> -->
+          <section class="main__right-list" >
+            <section  class="right-list-card" id="pokemonList">
+
+            </section>
+            <!-- <div class="right__list-ul">
               <ul class="right__ul">
                 <li class="right__ul-li">
                   <p>#001</p>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/001.png" alt="">
+                  <img
+                    src="https://www.serebii.net/pokemongo/pokemon/001.png"
+                    alt=""
+                  />
                   <span>Nombre</span>
                 </li>
                 <li class="right__ul-li">
                   <p>#001</p>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/001.png" alt="">
+                  <img
+                    src="https://www.serebii.net/pokemongo/pokemon/001.png"
+                    alt=""
+                  />
                   <span>Nombre</span>
                 </li>
                 <li class="right__ul-li">
                   <p>#001</p>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/001.png" alt="">
+                  <img
+                    src="https://www.serebii.net/pokemongo/pokemon/001.png"
+                    alt=""
+                  />
                   <span>Nombre</span>
                 </li>
               </ul>
               <ul class="right__ul">
                 <li class="right__ul-li">
                   <p>#001</p>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/001.png" alt="">
+                  <img
+                    src="https://www.serebii.net/pokemongo/pokemon/001.png"
+                    alt=""
+                  />
                   <span>Nombre</span>
                 </li>
                 <li class="right__ul-li">
                   <p>#001</p>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/001.png" alt="">
+                  <img
+                    src="https://www.serebii.net/pokemongo/pokemon/001.png"
+                    alt=""
+                  />
                   <span>Nombre</span>
                 </li>
                 <li class="right__ul-li">
                   <p>#001</p>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/001.png" alt="">
+                  <img
+                    src="https://www.serebii.net/pokemongo/pokemon/001.png"
+                    alt=""
+                  />
                   <span>Nombre</span>
                 </li>
               </ul>
               <ul class="right__ul">
                 <li class="right__ul-li">
                   <p>#001</p>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/001.png" alt="">
+                  <img
+                    src="https://www.serebii.net/pokemongo/pokemon/001.png"
+                    alt=""
+                  />
                   <span>Nombre</span>
                 </li>
                 <li class="right__ul-li">
                   <p>#001</p>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/001.png" alt="">
+                  <img
+                    src="https://www.serebii.net/pokemongo/pokemon/001.png"
+                    alt=""
+                  />
                   <span>Nombre</span>
                 </li>
                 <li class="right__ul-li">
                   <p>#001</p>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/001.png" alt="">
+                  <img
+                    src="https://www.serebii.net/pokemongo/pokemon/001.png"
+                    alt=""
+                  />
                   <span>Nombre</span>
                 </li>
               </ul>
-              <div class="right_btn">
-                <button class="btnLeft"></button>
-                <button class="btnRigth"></button>
-              </div>
+            </div> -->
+            <div class="right_btn">
+              <button class="btnLeft"></button>
+              <button class="btnRigth"></button>
+            </div>
           </section>
+        </section>
       </main>
     </div>
     <script src="main.js" type="module"></script>
