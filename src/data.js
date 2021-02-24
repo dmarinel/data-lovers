@@ -1,3 +1,4 @@
+
 export const filterPokemonsByType = (typePokemon, getPokemon) => {
   console.log(typePokemon.value, getPokemon);
   
