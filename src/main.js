@@ -1,57 +1,57 @@
-import { filterPokemonsByType } from "./data.js";
-import {pagePokemon} from "./js/pagination.js"
+import { filterPokemonsByType,filterPokemonByWeakness} from "./data.js";
 import data from "./data/pokemon/pokemon.js";
 
 // Selectores
 const pokemonList = document.querySelector("#pokemonList");
 const typePokemon = document.querySelector(".typePokemon");
-const previousButton = document.querySelector("#previousButton")
-const nextButton = document.querySelector("#nextButton")
-
+const previousButton = document.querySelector("#previousButton");
+const nextButton = document.querySelector("#nextButton");
+// Get pokemons
 const getPokemons = data.pokemon;
-const dataPokemon = data.pokemon;
+// Variables Globales
+let dataPoke = getPokemons;
+let cp1 = 0;
+let cp2 = 9;
 
-let currentPageNumber = 1;
+// funcion cantida de tipos
+// console.log(typesOfPokemon(dataPoke));
 
+// Funciones de paginacion
+const nextPage = (dataPokemon) => {
+  cp1 += 9;
+  cp2 += 9;
+  showPokemons(dataPokemon.slice(cp1, cp2));
+};
 
+const previousPage = (data) => {
+  cp1 -= 9;
+  cp2 -= 9;
+  showPokemons(data.slice(cp1, cp2));
+};
 
-const nextNavigationPage = (event) =>{
-  console.log(event);
-  currentPageNumber++;
-  console.log(currentPageNumber)
-  return currentPageNumber; 
-}
+// Funcion de eventos
+const nextNavigationPage = (data) => {
+  nextPage(data);
+};
 
+const previousNavigationPage = (data) => {
+  previousPage(data);
+};
 
-
-const previousNavigationPage = () =>{
-  currentPageNumber--;
-  console.log(currentPageNumber);
-  return currentPageNumber
-}
-
-pagePokemon(dataPokemon, nextNavigationPage(),previousNavigationPage())
-// const arrayNinePokemon = []
-
-// const arrayPokemon = (dataPokemons) =>{
-//   const dataNinePokemon = dataPokemons.slice(0,9)
-//  console.log(dataNinePokemon);
-//  return dataNinePokemon
-// }
-
-// arrayPokemon(getPokemons)
-
-
-
-// const searchPokemonsByTypes = () => {
-//   showPokemons(filterPokemonsByType(typePokemon, getPokemons));
-// };
-
+const filterPokemons = () => {
+  dataPoke = filterPokemonsByType(typePokemon, getPokemons);
+  dataPoke = filterPokemonByWeakness(typePokemon, getPokemons)
+  // showPokemons(dataPoke);
+  nextPage(dataPoke);
+  previousPage(dataPoke);
+};
 
 const showPokemons = (pokemonData) => {
-  let pokemos = pokemonData.forEach((poke) => {
+  // innerHTML = '' => limpiar pokemonList
+  pokemonList.innerHTML = "";
+  pokemonData.forEach((poke) => {
     let div = document.createElement("div");
-    div.classList.add('right__list-ul')
+    div.classList.add("right__list-ul");
     div.innerHTML = `
               <ul class="right__ul">
                 <li class="right__ul-li">
@@ -65,13 +65,14 @@ const showPokemons = (pokemonData) => {
   });
 };
 
-// showPokemons(arrayPokemon(getPokemons))
+// ver los primeros 9 pokemos => inicializar
+showPokemons(dataPoke.slice(cp1, cp2));
 
 // Event Change
-// typePokemon.addEventListener("change", searchPokemonsByTypes);
+typePokemon.addEventListener("change", filterPokemons);
 
-
-// event of pagination 
-nextButton.addEventListener("click", nextNavigationPage)
-previousButton.addEventListener("click", previousNavigationPage)
-
+// event of pagination
+nextButton.addEventListener("click", () => nextNavigationPage(dataPoke));
+previousButton.addEventListener("click", () =>
+  previousNavigationPage(dataPoke)
+);
