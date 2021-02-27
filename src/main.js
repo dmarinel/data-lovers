@@ -1,4 +1,8 @@
-import { filterPokemonsByType,filterPokemonByWeakness} from "./data.js";
+import {
+  filterPokemonsByType,
+  filterPokemonByWeakness,
+  filterPokemonByResistant,
+} from "./data.js";
 import data from "./data/pokemon/pokemon.js";
 
 // Selectores
@@ -40,8 +44,10 @@ const previousNavigationPage = (data) => {
 
 const filterPokemons = () => {
   dataPoke = filterPokemonsByType(typePokemon, getPokemons);
-  dataPoke = filterPokemonByWeakness(typePokemon, getPokemons)
-  // showPokemons(dataPoke);
+  dataPoke = filterPokemonByWeakness(typePokemon, getPokemons);
+  dataPoke = filterPokemonByResistant(typePokemon, getPokemons);
+  // console.log(dataPoke);
+  
   nextPage(dataPoke);
   previousPage(dataPoke);
 };
