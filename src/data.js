@@ -28,10 +28,47 @@ export const filterPokemonByResistant = (valueResistant, dataPokemon) =>{
   }
 }
 
-export const sortData = () =>{
-
+export const listTypesPokemon = (dataPokemon) =>{
+  // console.log(dataPokemon);
+  const arrayTypePokemon = []
+  for(let i=0; i<dataPokemon.length; i++ ){
+    const newData = dataPokemon[i].type
+    for (let j = 0; j < newData.length; j++) {
+      // console.log(newData[j]);
+      arrayTypePokemon.push(newData[j])
+    }
+  }
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+  // constructor set => Use to remove duplicate elements from the array
+  // sort => Metodo ordena los elementos de un array (corresponde a la posicion del string de acuerdo a su valor)
+  // https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+  const arrayListTypePokemon = [...new Set(arrayTypePokemon)].sort()
+  // console.log(arrayListTypePokemon);
+  return arrayListTypePokemon
 }
 
-export const  seachData = () =>{
-  
+export const  listWeaknessPokemon = (dataPokemon) =>{
+  // console.log(dataPokemon);
+  const arrayWeaknessPokemon = []
+  dataPokemon.map((poke)=>{
+    const newData = poke.weaknesses
+    newData.map(weak => arrayWeaknessPokemon.push(weak)
+    )
+  })
+  const arrayListWeaknessPokemon = [...new Set(arrayWeaknessPokemon)].sort()
+  // console.log(arrayListWeaknessPokemon);
+  return arrayListWeaknessPokemon
+}
+
+export const listResistantPokemon = (dataPokemon) => {
+  // console.log(dataPokemon);
+  const arrayResistantPokemon = []
+  dataPokemon.map((poke)=>{
+    const newData = poke.resistant
+    newData.map(resis => arrayResistantPokemon.push(resis))
+  })
+  // console.log(arrayResistantPokemon);
+  const arrayListResistantPokemon = [...new Set(arrayResistantPokemon)].sort()
+  // console.log(arrayListResistantPokemon);
+  return arrayListResistantPokemon
 }

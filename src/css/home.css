@@ -213,7 +213,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
+}
+
+.right__ul:hover{
+  cursor: pointer;
 }
 
 .right__ul-li{

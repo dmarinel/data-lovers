@@ -2,6 +2,9 @@ import {
   filterPokemonsByType,
   filterPokemonByWeakness,
   filterPokemonByResistant,
+  listTypesPokemon,
+  listWeaknessPokemon,
+  listResistantPokemon,
 } from "./data.js";
 import data from "./data/pokemon/pokemon.js";
 
@@ -10,6 +13,11 @@ const pokemonList = document.querySelector("#pokemonList");
 const typePokemon = document.querySelector(".typePokemon");
 const previousButton = document.querySelector("#previousButton");
 const nextButton = document.querySelector("#nextButton");
+// Solo para pruebas
+const fiterType = document.querySelector("#filterType");
+const filterWeaknesses = document.querySelector("#filterWeaknesses");
+const filterResistant = document.querySelector("#filterResistant");
+
 // Get pokemons
 const getPokemons = data.pokemon;
 // Variables Globales
@@ -18,7 +26,9 @@ let cp1 = 0;
 let cp2 = 9;
 
 // funcion cantida de tipos
-// console.log(typesOfPokemon(dataPoke));
+listTypesPokemon(dataPoke);
+listWeaknessPokemon(dataPoke);
+listResistantPokemon(dataPoke);
 
 // Funciones de paginacion
 const nextPage = (dataPokemon) => {
@@ -42,12 +52,33 @@ const previousNavigationPage = (data) => {
   previousPage(data);
 };
 
-const filterPokemons = () => {
-  dataPoke = filterPokemonsByType(typePokemon, getPokemons);
-  dataPoke = filterPokemonByWeakness(typePokemon, getPokemons);
-  dataPoke = filterPokemonByResistant(typePokemon, getPokemons);
+const filterPokemons = (e) => {
+  console.log(e.target.selectedIndex);
+  // console.log(e.target.length);
+  debugger;
+  if (e.target.selectedIndex < 19) {
+    console.log(filterType.label);
+    console.log(typePokemon.value);
+    dataPoke = filterPokemonsByType(typePokemon, getPokemons);
+  } else if (e.target.selectedIndex < 36) {
+    console.log(filterWeaknesses.label);
+    console.log(typePokemon.value);
+    dataPoke = filterPokemonByWeakness(typePokemon, getPokemons);
+  } else if (e.target.selectedIndex < 54) {
+    console.log(filterResistant.label);
+    console.log(typePokemon.value);
+    dataPoke = filterPokemonByResistant(typePokemon, getPokemons);
+  } else {
+    console.log("error");
+  }
+  console.log(dataPoke);
+
+  // dataPoke = filterPokemonsByType(typePokemon, getPokemons);
+  // dataPoke = filterPokemonByWeakness(typePokemon, getPokemons);
+
+  // dataPoke = filterPokemonByResistant(typePokemon, getPokemons);
   // console.log(dataPoke);
-  
+
   nextPage(dataPoke);
   previousPage(dataPoke);
 };
@@ -60,7 +91,7 @@ const showPokemons = (pokemonData) => {
     div.classList.add("right__list-ul");
     div.innerHTML = `
               <ul class="right__ul">
-                <li class="right__ul-li">
+                <li class="right__ul-li pokemon" >
                   <p>#${poke.num}</p>
                   <img src=${poke.img} alt="">
                   <span>${poke.name}</span>
@@ -68,6 +99,13 @@ const showPokemons = (pokemonData) => {
               </ul>
     `;
     pokemonList.append(div);
+  });
+
+  const ulPokemon = document.querySelectorAll("ul");
+  ulPokemon.forEach((e) => {
+    e.addEventListener("click", () => {
+      console.log(`Hola pokemon`);
+    });
   });
 };
 
