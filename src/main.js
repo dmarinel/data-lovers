@@ -13,10 +13,73 @@ const pokemonList = document.querySelector("#pokemonList");
 const typePokemon = document.querySelector(".typePokemon");
 const previousButton = document.querySelector("#previousButton");
 const nextButton = document.querySelector("#nextButton");
+const infoPokemon = document.getElementById("infoPokemon");
+
 // Solo para pruebas
 const fiterType = document.querySelector("#filterType");
 const filterWeaknesses = document.querySelector("#filterWeaknesses");
 const filterResistant = document.querySelector("#filterResistant");
+
+//Function to render information pokemon
+const renderInfoPokemonInit =() =>{
+  let figure = document.createElement("figure")
+  figure.classList.add("left__info-init")
+  figure.innerHTML =`
+  <img src="./img/pokeball2.gif" width="250" height="300" alt="">
+  <h2>Choose your <br> pokemon? </h2>
+  `
+  infoPokemon.appendChild(figure)
+}
+
+const renderInfoPokemon = (pokemon) => {
+  
+  let pokemonType = pokemon.type.map((type) => {
+    return `<img src="./img/${type}.png" alt=""></img>`;
+  });
+  let pokemonWeakness = pokemon.weaknesses.map((weak) => {
+    return `<img src="./img/${weak}.png" alt="">`;
+  });
+  let pokemonResistant = pokemon.resistant.map((resis) => {
+    return `<img src="./img/${resis}.png" alt="">`;
+  });
+
+  infoPokemon.innerHTML = "";
+  let section = document.createElement("section");
+  section.classList.add("left__info-container");
+  section.innerHTML = `
+    <section class="left__info-img">
+    <p>#${pokemon.num}</p>
+      <img
+        src=${pokemon.img}
+        alt=${pokemon.name}
+      />
+      <span>${pokemon.name}</span>
+  </section>
+  <section class="left__card-data">
+    <div >
+      <p class="data-title">Type:</p>
+      ${pokemonType.join("")}
+    </div>
+    <div>
+      <p class="data-title">Weaknesses:</p>
+      ${pokemonWeakness.join("")}
+    </div>
+    <div>
+      <p class="data-title">Resistant:</p>
+      ${pokemonResistant.join("")}
+    </div>
+    <div>
+      <p class="data-title">Stats:</p>
+      <span>Max-Hp:${pokemon.stats["max-hp"]}</span>
+      <span>Max-CP:${pokemon.stats["max-cp"]}</span>
+    </div>
+    <p class="data-about">
+      ${pokemon.about}
+    </p>
+  </section>
+    `;
+  infoPokemon.append(section);
+};
 
 // Get pokemons
 const getPokemons = data.pokemon;
@@ -53,30 +116,30 @@ const previousNavigationPage = (data) => {
 };
 
 const filterPokemons = (e) => {
-  console.log(e.target.selectedIndex);
-  // console.log(e.target.length);
-  debugger;
-  if (e.target.selectedIndex < 19) {
-    console.log(filterType.label);
-    console.log(typePokemon.value);
-    dataPoke = filterPokemonsByType(typePokemon, getPokemons);
-  } else if (e.target.selectedIndex < 36) {
-    console.log(filterWeaknesses.label);
-    console.log(typePokemon.value);
-    dataPoke = filterPokemonByWeakness(typePokemon, getPokemons);
-  } else if (e.target.selectedIndex < 54) {
-    console.log(filterResistant.label);
-    console.log(typePokemon.value);
-    dataPoke = filterPokemonByResistant(typePokemon, getPokemons);
-  } else {
-    console.log("error");
-  }
-  console.log(dataPoke);
+  e.target.selectedIndex < 19
+    ? (dataPoke = filterPokemonsByType(typePokemon, getPokemons))
+    : e.target.selectedIndex < 36
+    ? (dataPoke = filterPokemonByWeakness(typePokemon, getPokemons))
+    : e.target.selectedIndex < 54
+    ? (dataPoke = filterPokemonByResistant(typePokemon, getPokemons))
+    : console.log("error");
 
-  // dataPoke = filterPokemonsByType(typePokemon, getPokemons);
-  // dataPoke = filterPokemonByWeakness(typePokemon, getPokemons);
-
-  // dataPoke = filterPokemonByResistant(typePokemon, getPokemons);
+  // console.log(e.target.selectedIndex);
+  // if (e.target.selectedIndex < 19) {
+  //   console.log(filterType.label);
+  //   console.log(typePokemon.value);
+  //   dataPoke = filterPokemonsByType(typePokemon, getPokemons);
+  // } else if (e.target.selectedIndex < 36) {
+  //   console.log(filterWeaknesses.label);
+  //   console.log(typePokemon.value);
+  //   dataPoke = filterPokemonByWeakness(typePokemon, getPokemons);
+  // } else if (e.target.selectedIndex < 54) {
+  //   console.log(filterResistant.label);
+  //   console.log(typePokemon.value);
+  //   dataPoke = filterPokemonByResistant(typePokemon, getPokemons);
+  // } else {
+  //   console.log("error");
+  // }
   // console.log(dataPoke);
 
   nextPage(dataPoke);
@@ -99,14 +162,10 @@ const showPokemons = (pokemonData) => {
               </ul>
     `;
     pokemonList.append(div);
+    
+    div.addEventListener("click", () => renderInfoPokemon(poke));
   });
-
-  const ulPokemon = document.querySelectorAll("ul");
-  ulPokemon.forEach((e) => {
-    e.addEventListener("click", () => {
-      console.log(`Hola pokemon`);
-    });
-  });
+  renderInfoPokemonInit()
 };
 
 // ver los primeros 9 pokemos => inicializar
