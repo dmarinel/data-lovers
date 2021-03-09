@@ -5,6 +5,8 @@ import {
   listTypesPokemon,
   listWeaknessPokemon,
   listResistantPokemon,
+  top10PokemonByCp,
+  searchPokemonByName
 } from "./data.js";
 import data from "./data/pokemon/pokemon.js";
 
@@ -13,26 +15,39 @@ const pokemonList = document.querySelector("#pokemonList");
 const typePokemon = document.querySelector(".typePokemon");
 const previousButton = document.querySelector("#previousButton");
 const nextButton = document.querySelector("#nextButton");
+// Elements
 const infoPokemon = document.getElementById("infoPokemon");
+const searchText = document.getElementById("searchText");
+const upButton = document.getElementById("upButton")
+const downButton = document.getElementById("downButton")
 
 // Solo para pruebas
 const fiterType = document.querySelector("#filterType");
 const filterWeaknesses = document.querySelector("#filterWeaknesses");
 const filterResistant = document.querySelector("#filterResistant");
 
+// Get pokemons
+const getPokemons = data.pokemon;
+// Variables Globales
+let dataPoke = getPokemons;
+let cp1 = 0;
+let cp2 = 9;
+
+top10PokemonByCp(dataPoke);
+
 //Function to render information pokemon
-const renderInfoPokemonInit =() =>{
-  let figure = document.createElement("figure")
-  figure.classList.add("left__info-init")
-  figure.innerHTML =`
+const renderInfoPokemonInit = () => {
+  infoPokemon.innerHTML = "";
+  let figure = document.createElement("figure");
+  figure.classList.add("left__info-init");
+  figure.innerHTML = `
   <img src="./img/pokeball2.gif" width="250" height="300" alt="">
   <h2>Choose your <br> pokemon? </h2>
-  `
-  infoPokemon.appendChild(figure)
-}
+  `;
+  infoPokemon.appendChild(figure);
+};
 
 const renderInfoPokemon = (pokemon) => {
-  
   let pokemonType = pokemon.type.map((type) => {
     return `<img src="./img/${type}.png" alt=""></img>`;
   });
@@ -81,13 +96,6 @@ const renderInfoPokemon = (pokemon) => {
   infoPokemon.append(section);
 };
 
-// Get pokemons
-const getPokemons = data.pokemon;
-// Variables Globales
-let dataPoke = getPokemons;
-let cp1 = 0;
-let cp2 = 9;
-
 // funcion cantida de tipos
 listTypesPokemon(dataPoke);
 listWeaknessPokemon(dataPoke);
@@ -123,28 +131,26 @@ const filterPokemons = (e) => {
     : e.target.selectedIndex < 54
     ? (dataPoke = filterPokemonByResistant(typePokemon, getPokemons))
     : console.log("error");
-
-  // console.log(e.target.selectedIndex);
-  // if (e.target.selectedIndex < 19) {
-  //   console.log(filterType.label);
-  //   console.log(typePokemon.value);
-  //   dataPoke = filterPokemonsByType(typePokemon, getPokemons);
-  // } else if (e.target.selectedIndex < 36) {
-  //   console.log(filterWeaknesses.label);
-  //   console.log(typePokemon.value);
-  //   dataPoke = filterPokemonByWeakness(typePokemon, getPokemons);
-  // } else if (e.target.selectedIndex < 54) {
-  //   console.log(filterResistant.label);
-  //   console.log(typePokemon.value);
-  //   dataPoke = filterPokemonByResistant(typePokemon, getPokemons);
-  // } else {
-  //   console.log("error");
-  // }
-  // console.log(dataPoke);
-
+  e.target.selectedIndex = 55;
   nextPage(dataPoke);
   previousPage(dataPoke);
 };
+
+const searchPokemon = () =>{
+  dataPoke = searchPokemonByName(searchText, getPokemons)
+  nextPage(dataPoke);
+  previousPage(dataPoke);
+}
+
+const sortUp = (data) =>{
+  console.log(`click`);
+}
+
+const sortDown = (data) =>{
+  console.log(`clik Down`);
+}
+
+
 
 const showPokemons = (pokemonData) => {
   // innerHTML = '' => limpiar pokemonList
@@ -162,17 +168,23 @@ const showPokemons = (pokemonData) => {
               </ul>
     `;
     pokemonList.append(div);
-    
+
     div.addEventListener("click", () => renderInfoPokemon(poke));
+    renderInfoPokemonInit();
   });
-  renderInfoPokemonInit()
 };
 
 // ver los primeros 9 pokemos => inicializar
 showPokemons(dataPoke.slice(cp1, cp2));
 
+// Evento Click UP
+upButton.addEventListener("click", () => sortUp(dataPoke) )
+// Evento Click Down 
+downButton.addEventListener("click", () => sortDown(dataPoke))
 // Event Change
 typePokemon.addEventListener("change", filterPokemons);
+// Event keyUP
+searchText.addEventListener("keyup", searchPokemon )
 
 // event of pagination
 nextButton.addEventListener("click", () => nextNavigationPage(dataPoke));
