@@ -157,7 +157,6 @@ const sortDown = (data, sortOrderValue) =>{
 }
 
 
-
 const showPokemons = (pokemonData) => {
   // innerHTML = '' => limpiar pokemonList
   pokemonList.innerHTML = "";
