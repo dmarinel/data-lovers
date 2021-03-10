@@ -3,6 +3,7 @@ import {
   filterPokemonByWeakness,
   filterPokemonByResistant,
   listTypesPokemon,
+  sortData,
   listWeaknessPokemon,
   listResistantPokemon,
   top10PokemonByCp,
@@ -124,6 +125,7 @@ const previousNavigationPage = (data) => {
 };
 
 const filterPokemons = (e) => {
+  
   e.target.selectedIndex < 19
     ? (dataPoke = filterPokemonsByType(typePokemon, getPokemons))
     : e.target.selectedIndex < 36
@@ -142,12 +144,16 @@ const searchPokemon = () =>{
   previousPage(dataPoke);
 }
 
-const sortUp = (data) =>{
-  console.log(`click`);
+const sortUp = (data, sortOrderValue) =>{
+  dataPoke = sortData(data,sortOrderValue)
+  nextPage(dataPoke);
+  previousPage(dataPoke);
 }
 
-const sortDown = (data) =>{
-  console.log(`clik Down`);
+const sortDown = (data, sortOrderValue) =>{
+  dataPoke = sortData(data,sortOrderValue)
+  nextPage(dataPoke);
+  previousPage(dataPoke);
 }
 
 
@@ -178,9 +184,9 @@ const showPokemons = (pokemonData) => {
 showPokemons(dataPoke.slice(cp1, cp2));
 
 // Evento Click UP
-upButton.addEventListener("click", () => sortUp(dataPoke) )
+upButton.addEventListener("click", () => sortUp(dataPoke, upButton) )
 // Evento Click Down 
-downButton.addEventListener("click", () => sortDown(dataPoke))
+downButton.addEventListener("click", () => sortDown(dataPoke, downButton))
 // Event Change
 typePokemon.addEventListener("change", filterPokemons);
 // Event keyUP
