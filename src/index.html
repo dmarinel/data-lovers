@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="/src/css/style.css" />
   </head>
   <body>
+    <audio autoplay >
+      <source src="./audio/musicaPoke.mp3"  type="audio/mp3" >
+    </audio>
     <div id="root" class="root">
       <header class="container__header">
         <a href="#" class="container__header-text" id="btnOpenTop10">poke10</a>
@@ -72,7 +75,6 @@
                 <option value="rock">Rock</option>
                 <option value="steel">Steel</option>
                 <option value="water">Water</option>
-              </option>
               </optgroup>
               <optgroup label="RESISTANT" id="filterResistant">
                 <option value="bug">Bug</option>
@@ -116,86 +118,17 @@
         </section>
       </main>
     </div>
-    <section id="modal" class="modal">
-      <article id="popup"class="popup">
-        <a href="#" id="btnClosePopup" class="btn-close-popup">x</a>
+    
+    <div id="modal" class="modal">
+      <section class="popup" id="popup">
+        <a href="#" class="btn-close-popup" id="btnClosePopup">X</a>
         <section class="modal__container-top10">
-          <h3> TOP 10 POKEMON WITH MAX-CP </h3>
-             <ul class="container__card" id="card">
-              <!--<li class="card-top10">
-                <figure>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/002.png" alt="">
-                </figure>
-                <p>nombre</p>
-                <p>Max-cp: 4187</p>
-              </li>
-              <li class="card-top10">
-                <figure>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/002.png" alt="">
-                </figure>
-                <p>nombre</p>
-                <p>Max-cp: 4187</p>
-              </li>
-              <li class="card-top10">
-                <figure>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/002.png" alt="">
-                </figure>
-                <p>nombre</p>
-                <p>Max-cp: 4187</p>
-              </li>
-              <li class="card-top10">
-                <figure>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/002.png" alt="">
-                </figure>
-                <p>nombre</p>
-                <p>Max-cp: 4187</p>
-              </li>
-              <li class="card-top10">
-                <figure>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/002.png" alt="">
-                </figure>
-                <p>nombre</p>
-                <p>Max-cp: 4187</p>
-              </li>
-              <li class="card-top10">
-                <figure>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/002.png" alt="">
-                </figure>
-                <p>nombre</p>
-                <p>Max-cp: 4187</p>
-              </li>
-              <li class="card-top10">
-                <figure>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/002.png" alt="">
-                </figure>
-                <p>nombre</p>
-                <p>Max-cp: 4187</p>
-              </li>
-              <li class="card-top10">
-                <figure>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/002.png" alt="">
-                </figure>
-                <p>nombre</p>
-                <p>Max-cp: 4187</p>
-              </li>
-              <li class="card-top10">
-                <figure>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/002.png" alt="">
-                </figure>
-                <p>nombre</p>
-                <p>Max-cp: 4187</p>
-              </li>
-              <li class="card-top10">
-                <figure>
-                  <img src="https://www.serebii.net/pokemongo/pokemon/002.png" alt="">
-                </figure>
-                <p>nombre</p>
-                <p>Max-cp: 4187</p>
-              </li> -->
-            </ul>
+          <h3>TOP 10 POKEMON WITH MAX-CP</h3>
+          <ul class="container__card" id="card"></ul>
         </section>
-      </article>
-    </section>
+      </section>
+    </div>
+    
     <script src="main.js" type="module"></script>
   </body>
 </html>

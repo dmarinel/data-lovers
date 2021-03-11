@@ -16,5 +16,8 @@ html{
 body{
     font-family: var(--share);
     background: #FDEDED;
+    background-image: url("../img/pokemon2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;   
 }
 

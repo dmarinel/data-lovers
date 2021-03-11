@@ -31,7 +31,7 @@ export const filterPokemonByResistant = (valueResistant, dataPokemon) => {
   }
 };
 
-export const listTypesPokemon = (dataPokemon) => {
+/* export const listTypesPokemon = (dataPokemon) => {
   // console.log(dataPokemon);
   const arrayTypePokemon = [];
   for (let i = 0; i < dataPokemon.length; i++) {
@@ -48,9 +48,9 @@ export const listTypesPokemon = (dataPokemon) => {
   const arrayListTypePokemon = [...new Set(arrayTypePokemon)].sort();
   // console.log(arrayListTypePokemon);
   return arrayListTypePokemon;
-};
+}; */
 
-export const listWeaknessPokemon = (dataPokemon) => {
+/* export const listWeaknessPokemon = (dataPokemon) => {
   // console.log(dataPokemon);
   const arrayWeaknessPokemon = [];
   dataPokemon.map((poke) => {
@@ -60,9 +60,9 @@ export const listWeaknessPokemon = (dataPokemon) => {
   const arrayListWeaknessPokemon = [...new Set(arrayWeaknessPokemon)].sort();
   // console.log(arrayListWeaknessPokemon);
   return arrayListWeaknessPokemon;
-};
+}; */
 
-export const listResistantPokemon = (dataPokemon) => {
+/* export const listResistantPokemon = (dataPokemon) => {
   // console.log(dataPokemon);
   const arrayResistantPokemon = [];
   dataPokemon.map((poke) => {
@@ -73,7 +73,7 @@ export const listResistantPokemon = (dataPokemon) => {
   const arrayListResistantPokemon = [...new Set(arrayResistantPokemon)].sort();
   // console.log(arrayListResistantPokemon);
   return arrayListResistantPokemon;
-};
+}; */
 
 export const top10PokemonByCp = (dataPokemon) => {
   // const arrayCp = dataPokemon.map((e)=> e.stats["max-cp"])
@@ -82,7 +82,7 @@ export const top10PokemonByCp = (dataPokemon) => {
   );
   const top10CpMax = arrayCpOrder.slice(0, 10);
   // console.log(top10CpMax);
-  return top10CpMax
+  return top10CpMax;
 };
 
 export const searchPokemonByName = (searchInput, dataPokemon) => {
@@ -105,12 +105,12 @@ export const sortData = (dataPokemon, sortOrder) => {
 
   if (dataValue === "btnup") {
     // console.log(dataPokemon.sort((a,b)=>a.num - b.num));
-    return dataPokemon.sort((a,b)=>a.num - b.num)
+    return dataPokemon.sort((a, b) => a.num - b.num);
   }
 
   if (dataValue === "btndown") {
     // console.log(dataPokemon.sort((a,b)=>b.num - a.num));
-    return dataPokemon.sort((a,b)=>b.num - a.num)
+    return dataPokemon.sort((a, b) => b.num - a.num);
   }
   //
 };
