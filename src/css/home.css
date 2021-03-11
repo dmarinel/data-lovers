@@ -36,10 +36,15 @@
   background: var(--red-light);
   border-radius: 1.6rem;
   margin-top: 19px;
+  box-shadow: 0.5px 0.5px 0.5px 0px rgba(0, 0, 0, 0.4);
 }
 
 .container__header-text:hover {
   background: rgba(239, 117, 117, 0.45);
+}
+.container__header-text:active{
+  transform: translateY(-0.5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .container__header img{
@@ -317,13 +322,14 @@
   border-radius: 50%;
   outline: none;
   cursor: pointer;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
   /* animation: ring 1.5s infinite; */
 }
 
-.btnUp:hover{
-  color: #313133;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+.btnUp:active{
+  transform: translateY(-0.5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  
 }
 
 .btnDown{
@@ -336,12 +342,12 @@
   border-radius: 50%;
   outline: none;
   cursor: pointer;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
 }
 
-.btnDown:hover{
-  color: #313133;
-  transform: translateY( 3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+.btnDown:active{
+  transform: translateY(-0.5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .main__right-list{

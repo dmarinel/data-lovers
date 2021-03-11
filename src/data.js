@@ -81,7 +81,8 @@ export const top10PokemonByCp = (dataPokemon) => {
     (a, b) => b.stats["max-cp"] - a.stats["max-cp"]
   );
   const top10CpMax = arrayCpOrder.slice(0, 10);
-  console.log(top10CpMax);
+  // console.log(top10CpMax);
+  return top10CpMax
 };
 
 export const searchPokemonByName = (searchInput, dataPokemon) => {
